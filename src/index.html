@@ -25,6 +25,7 @@
 
         <script src="js/vendor/jquery-2.2.3.min.js"></script>
         <script src="js/vendor/jquery-ui.min.js"></script>
+        <script src="js/vendor/reflection.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script src="js/vendor/coverflow/jquery.coverflow.js"></script>
@@ -62,6 +63,9 @@
 
         <script>
             $(function() {
+                if ($.fn.reflect) {
+                    $('.photos .cover').reflect();
+                }
                 $('.coverflow').coverflow();
                 $('.photos').coverflow({
                     easing:			'easeOutElastic',
