@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="C:\Users\hhusic\workspace\sonos\lib\sonos" vcs="Git" />
+    <mapping directory="C:\Users\hhusic\workspace\sonos\src\js\vendor\coverflow" vcs="Git" />
   </component>
 </project>
