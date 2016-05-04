@@ -20,9 +20,6 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
         <script src="js/vendor/jquery-2.2.3.min.js"></script>
         <script src="js/vendor/jquery-ui.min.js"></script>
         <script src="js/vendor/reflection.js"></script>
@@ -31,16 +28,6 @@
         <script src="js/vendor/coverflow/jquery.coverflow.js"></script>
         <script src="js/vendor/coverflow/jquery.touchSwipe.min.js"></script>
         <script src="js/vendor/coverflow/jquery.interpolate.min.js"></script>
-
-        <div class="coverflow">
-            <div class="cover" data-name="A">A</div>
-            <div class="cover" data-name="B">B</div>
-            <div class="cover" data-name="C">C</div>
-            <div class="cover" data-name="D">D</div>
-            <div class="cover" data-name="E">E</div>
-            <div class="cover" data-name="Y">Y</div>
-            <div class="cover" data-name="Z">Z</div>
-        </div>
 
         <div class="photos" autofocus>
             <img class="cover" data-name="Attic" src="//vanderlee.github.io/coverflow/demo/attic.jpg"/>
@@ -61,33 +48,5 @@
             <div id="photos-name"></div>
         </div>
 
-        <script>
-            $(function() {
-                if ($.fn.reflect) {
-                    $('.photos .cover').reflect();
-                }
-                $('.coverflow').coverflow();
-                $('.photos').coverflow({
-                    easing:			'easeOutElastic',
-                    duration:		'slow',
-                    index:			3,
-                    width:			320,
-                    height:			240,
-                    visible:		'density',
-                    selectedCss:	{	opacity: 1	},
-                    outerCss:		{	opacity: .1	},
-
-                    confirm:		function() {
-                        console.log('Clicked: ' + $('#photos-name').text());
-                    },
-
-                    change:			function(event, cover) {
-                        var img = $(cover).children().andSelf().filter('img').last();
-                        $('#photos-name').text(img.data('name') || 'unknown');
-                    }
-
-                });
-            });
-        </script>
     </body>
 </html>
