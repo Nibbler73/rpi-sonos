@@ -1,0 +1,4 @@
+[submodule "lib/sonos"]
+	path = lib/sonos
+	url = https://github.com/duncan3dc/sonos.git
+	branch = master
