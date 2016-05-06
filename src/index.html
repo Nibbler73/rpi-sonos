@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/coverflow.css">
+        <link rel="stylesheet" href="css/sly.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -25,27 +26,40 @@
         <script src="js/vendor/reflection.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/vendor/coverflow/jquery.coverflow.js"></script>
-        <script src="js/vendor/coverflow/jquery.touchSwipe.min.js"></script>
-        <script src="js/vendor/coverflow/jquery.interpolate.min.js"></script>
+        <script src="js/vendor/sly/dist/sly.min.js"></script>
 
-        <div class="photos" autofocus>
-            <img class="cover" data-name="Attic" src="//vanderlee.github.io/coverflow/demo/attic.jpg"/>
-            <img class="cover" data-name="Aurora Borealis" src="//vanderlee.github.io/coverflow/demo/aurora.jpg"/>
-            <img class="cover" data-name="Barbecued steak" src="//vanderlee.github.io/coverflow/demo/barbecue.jpg"/>
-            <img class="cover" data-name="Black swan" src="//vanderlee.github.io/coverflow/demo/blackswan.jpg"/>
-            <img class="cover" data-name="Chess" src="//vanderlee.github.io/coverflow/demo/chess.jpg"/>
-            <img class="cover" data-name="Fire" src="//vanderlee.github.io/coverflow/demo/fire.jpg"/>
-            <img class="cover" data-name="Keyboard" src="//vanderlee.github.io/coverflow/demo/keyboard.jpg"/>
-            <img class="cover" data-name="Locomotive" src="//vanderlee.github.io/coverflow/demo/locomotive.jpg"/>
-            <img class="cover" data-name="Novo-Diveevo monastery" src="//vanderlee.github.io/coverflow/demo/diveevo.jpg"/>
-            <img class="cover" data-name="Person" src="//vanderlee.github.io/coverflow/demo/person.jpg"/>
-            <img class="cover" data-name="Rose" src="//vanderlee.github.io/coverflow/demo/rose.jpg"/>
-            <img class="cover" data-name="Seagull" src="//vanderlee.github.io/coverflow/demo/seagull.jpg"/>
-            <img class="cover" data-name="Solar power" src="//vanderlee.github.io/coverflow/demo/solarpower.jpg"/>
-        </div>
-        <div id="photos-info">
-            <div id="photos-name"></div>
+
+        <div class="wrap">
+
+            <div class="scrollbar">
+                <div class="handle">
+                    <div class="mousearea"></div>
+                </div>
+            </div>
+
+            <div class="frame" id="basic">
+                <ul class="clearfix">
+                    <li><img data-name="Attic" src="//vanderlee.github.io/coverflow/demo/attic.jpg"/></li>
+                    <li><img data-name="Aurora Borealis" src="//vanderlee.github.io/coverflow/demo/aurora.jpg"/></li>
+                    <li><img data-name="Barbecued steak" src="//vanderlee.github.io/coverflow/demo/barbecue.jpg"/></li>
+                    <li><img data-name="Black swan" src="//vanderlee.github.io/coverflow/demo/blackswan.jpg"/></li>
+                    <li><img data-name="Chess" src="//vanderlee.github.io/coverflow/demo/chess.jpg"/></li>
+                    <li><img data-name="Fire" src="//vanderlee.github.io/coverflow/demo/fire.jpg"/></li>
+                    <li><img data-name="Keyboard" src="//vanderlee.github.io/coverflow/demo/keyboard.jpg"/></li>
+                    <li><img data-name="Locomotive" src="//vanderlee.github.io/coverflow/demo/locomotive.jpg"/></li>
+                    <li><img data-name="Novo-Diveevo monastery" src="//vanderlee.github.io/coverflow/demo/diveevo.jpg"/></li>
+                    <li><img data-name="Person" src="//vanderlee.github.io/coverflow/demo/person.jpg"/></li>
+                    <li><img data-name="Rose" src="//vanderlee.github.io/coverflow/demo/rose.jpg"/></li>
+                    <li><img data-name="Seagull" src="//vanderlee.github.io/coverflow/demo/seagull.jpg"/></li>
+                    <li><img data-name="Solar power" src="//vanderlee.github.io/coverflow/demo/solarpower.jpg"/></li>
+                </ul>
+            </div>
+
+            <ul class="pages"></ul>
+
+            <div id="photos-info">
+                <div id="photos-name"></div>
+            </div>
         </div>
 
     </body>

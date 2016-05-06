@@ -12,22 +12,15 @@ philosophy or framework, so you're free to architect your code in the
 way that you want.
 
 * Homepage: [https://html5boilerplate.com](https://html5boilerplate.com)
-* Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
-* Twitter: [@h5bp](https://twitter.com/h5bp)
+* Source: [https://github.com/Nibbler73/rpi-sonos](https://github.com/Nibbler73/rpi-sonos)
 
 
 ## Quick start
 
-Choose one of the following options:
+Short:
 
-1. Download the latest stable release from
-   [html5boilerplate.com](https://html5boilerplate.com/) or create a
-   custom build using [Initializr](http://www.initializr.com).
-2. Clone the git repo — `git clone
-   https://github.com/h5bp/html5-boilerplate.git` - and checkout the
-   [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
-   you'd like to use.
-
+1. Clone the git repo — `git clone https://github.com/Nibbler73/rpi-sonos.git`.
+2. Copy all files to `/var/www` in your Raspberry Pi, adjust the start-page of your browser.
 
 ## Features
 
