@@ -2,3 +2,6 @@
 	path = lib/sonos
 	url = https://github.com/duncan3dc/sonos.git
 	branch = master
+[submodule "src/js/vendor/sly"]
+	path = src/js/vendor/sly
+	url = https://github.com/darsain/sly.git
