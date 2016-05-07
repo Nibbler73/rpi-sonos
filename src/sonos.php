@@ -6,6 +6,7 @@
  *
  */
 
+require_once "config.inc.php";
 require_once "../vendor/autoload.php";
 
 // use duncan3dc\Sonos\Tracks\Track;
