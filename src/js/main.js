@@ -4,6 +4,15 @@ function debug() {
     }
 }
 
+// Add a spinner to the page while Ajax-Requests are active
+// Spinner Image: http://preloaders.net/en/circular
+// Spinner JS: https://stackoverflow.com/questions/1964839/how-can-i-create-a-please-wait-loading-animation-using-jquery
+$body = $("body");
+$(document).on({
+    ajaxStart:  function() { $body.addClass("loading");     },
+    ajaxStop:   function() { $body.removeClass("loading");  }
+});
+
 jQuery(function($) {
     'use strict';
 
@@ -32,7 +41,6 @@ jQuery(function($) {
                     mouseDragging: 1,
                     touchDragging: 1,
                     releaseSwing: 1,
-                    startAt: 3,
                     scrollBar: $wrap.find('.scrollbar'),
                     scrollBy: 1,
                     pagesBar: $wrap.find('.pages'),
