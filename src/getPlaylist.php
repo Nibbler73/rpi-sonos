@@ -31,26 +31,60 @@ foreach ($radio->getFavouriteStations() as $favouriteStation) {
     $jsonPlaylists['items'][] = getJsonPlaylistItem($favouriteStation->getName(), $favouriteStation->getTitle(), false, TYPE_RADIO_STREAM);
 }
 
-
 die( json_encode($jsonPlaylists) );
 
+/*
+ * Helper Function for Text
+ * Source: https://wmh.github.io/hunbook/examples/gd-imagettftext.html
+ */
+function imagettfstroketext(&$image, $size, $angle, $x, $y, &$textcolor, &$strokecolor, $fontfile, $text, $px) {
+    for($c1 = ($x-abs($px)); $c1 <= ($x+abs($px)); $c1++)
+        for($c2 = ($y-abs($px)); $c2 <= ($y+abs($px)); $c2++)
+            $bg = imagettftext($image, $size, $angle, $c1, $c2, $strokecolor, $fontfile, $text);
+    return imagettftext($image, $size, $angle, $x, $y, $textcolor, $fontfile, $text);
+}
 
+
+/**
+ * @param $id
+ * @param $name
+ * @param $albumArtUrl
+ * @param $type
+ * @return array
+ */
 
 function getJsonPlaylistItem($id, $name, $albumArtUrl, $type) {
     if($albumArtUrl === false) {
         $dest = imagecreatefromjpeg(PATH_EMPTY_ART);
     } else {
         $source = imagecreatefromjpeg($albumArtUrl);
-        $width = imagesx($source);
+        $width  = imagesx($source);
         $height = imagesy($source);
         $dest   = imagecreatetruecolor(IMG_WIDTH,IMG_HEIGHT);
         imagecopyresized($dest, $source, 0, 0, 0, 0, IMG_WIDTH,IMG_HEIGHT, $width,$height);
     }
 
     if($albumArtUrl === false) {
+        // https://stackoverflow.com/questions/15982732/php-gd-align-text-center-horizontally-and-decrease-font-size-to-keep-it-inside
+        // find font-size for $txtWidth = 80% of $img_width...
+        $fontSize = 20;
+        $txtMaxWidth = intval(0.8 * IMG_WIDTH);
+
+        do {
+            $fontSize++;
+            $p = imagettfbbox($fontSize, $angle=335, FONT_NAME, $name);
+            $txtWidth=$p[2]-$p[0];
+
+        } while ($txtWidth <= $txtMaxWidth && $fontSize < 28);
+
+        // now center the text
+        $y = IMG_HEIGHT * 0.9; // baseline of text at 90% of $img_height
+        $x = (IMG_WIDTH - $txtWidth) / 2;
+
         $black = ImageColorAllocate($dest, 0, 0, 0);
         $white = ImageColorAllocate($dest, 255, 255, 255);
-        ImageTTFText($dest, 20, 315, 10, 20, $black, FONT_NAME, $name);
+        imagettfstroketext($dest, $fontSize, $angle=335, $x, $y=80, $white, $black, FONT_NAME, $name, $px=2);
+        //ImageTTFText($dest, 20, 315, 10, 20, $black, FONT_NAME, $name);
     }
     imagejpeg($dest, TMP_PATH."/".$id);
 
