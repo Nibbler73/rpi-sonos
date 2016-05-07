@@ -19,7 +19,7 @@ jQuery(function($) {
             format: "json"
         }).done(function( data ) {
             $.each( data.items, function( i, item ) {
-                $( "<img>" ).attr( "src", item.albumArt).attr("data-name", item.name).attr("data-id", item.id).appendTo( $( "<li>").appendTo("#basic-list") );
+                $( "<img>" ).attr( "src", item.albumArt).attr("data-name", item.name).attr("data-id", item.id).attr("data-type", item.type).appendTo( $( "<li>").appendTo("#basic-list") );
             });
 
             // Call Sly on frame
@@ -53,7 +53,8 @@ jQuery(function($) {
                 $.getJSON( selectItem, {
                     position: itemIndex,
                     id: img.data('id'),
-                    name: img.data('name')
+                    name: img.data('name'),
+                    type: img.data('type')
                 })
             });
         });

@@ -4,7 +4,8 @@
  */
 
 define('PREFERRED_CONTROLLER', 'Spielzimmer');
-
+define('TYPE_PLAYLIST', 3300);
+define('TYPE_RADIO_STREAM', 3301);
 
 define('FONT_NAME', '/usr/share/fonts/truetype/freefont/FreeSans.ttf');
 
@@ -13,7 +14,7 @@ define('FONT_NAME', '/usr/share/fonts/truetype/freefont/FreeSans.ttf');
  */
 
 define('TMP_PATH', '/tmp');
-define('PATH_EMPTY_ART', 'js/vendor/coverflow/demo/rose.jpg');
+define('PATH_EMPTY_ART', 'img/flowers.jpg');
 
 define('IMG_WIDTH', 225);
 define('IMG_HEIGHT', 250);
