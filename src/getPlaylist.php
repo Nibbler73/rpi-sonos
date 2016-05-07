@@ -22,7 +22,9 @@ foreach ($playlists as $playlist) {
             break;
         }
     }
-    $jsonPlaylists['items'][] = getJsonPlaylistItem($playlist->getId(), $playlist->getName(), $albumArt, TYPE_PLAYLIST);
+    if($albumArt !== false) {
+        $jsonPlaylists['items'][] = getJsonPlaylistItem($playlist->getId(), $playlist->getName(), $albumArt, TYPE_PLAYLIST);
+    }
 }
 
 // Fetch Sonos Radio-Stations
