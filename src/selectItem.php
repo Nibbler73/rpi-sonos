@@ -35,8 +35,7 @@ if(strlen($playlistId) > 0) {
 
 
 function playFromPlaylist(\duncan3dc\Sonos\Controller $controller, $playlistId) {
-    // currently $sonos-network cannot be fetched by $controller->getNetwork, so get a new one
-    $sonos = new \duncan3dc\Sonos\Network;
+    $sonos = $controller->getNetwork();
 
     // Make sure the Controller is using a queue
     if (!$controller->isUsingQueue()) {
@@ -57,8 +56,7 @@ function playFromPlaylist(\duncan3dc\Sonos\Controller $controller, $playlistId) 
 
 
 function playFromRadioStream(\duncan3dc\Sonos\Controller $controller, $streamName) {
-    // currently $sonos-network cannot be fetched by $controller->getNetwork, so get a new one
-    $sonos = new \duncan3dc\Sonos\Network;
+    $sonos = $controller->getNetwork();
     $radio = $sonos->getRadio();
     if ($show = $radio->getFavouriteStation($streamName)) {
         $controller->useStream($show)->play();
