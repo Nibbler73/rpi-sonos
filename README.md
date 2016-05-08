@@ -15,7 +15,7 @@ Note: Make sure to also clone the git-submodules.
 
 Short:
 
-1. Clone the git repo — `git clone https://github.com/Nibbler73/rpi-sonos.git`.
+1. Clone the git repo — `git clone --recursive https://github.com/Nibbler73/rpi-sonos.git`.
 2. Copy all files to `/var/www` in your Raspberry Pi, adjust the start-page of your browser.
 
 ## Features
