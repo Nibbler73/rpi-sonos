@@ -23,13 +23,16 @@ foreach ($playlists as $playlist) {
         }
     }
     if($albumArt !== false) {
-        $jsonPlaylists['items'][] = getJsonPlaylistItem($playlist->getId(), $playlist->getName(), $albumArt, TYPE_PLAYLIST);
+        $jsonPlaylists['items'][] = getJsonPlaylistItem($playlist->getId(), $playlist->getName(), $albumArt, TYPE_SONOS_PLAYLIST);
     }
 }
 
 // Fetch Sonos Radio-Stations
 $radio = $sonos->getRadio();
 foreach ($radio->getFavouriteStations() as $favouriteStation) {
+    $jsonPlaylists['items'][] = getJsonPlaylistItem($favouriteStation->getName(), $favouriteStation->getTitle(), false, TYPE_RADIO_STREAM);
+}
+foreach ($radio->getFavouriteShows() as $favouriteStation) {
     $jsonPlaylists['items'][] = getJsonPlaylistItem($favouriteStation->getName(), $favouriteStation->getTitle(), false, TYPE_RADIO_STREAM);
 }
 

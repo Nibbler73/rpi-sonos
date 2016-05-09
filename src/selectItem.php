@@ -24,7 +24,7 @@ if(strlen($playlistId) > 0) {
 
     // now we have either found our preferred controller, or we have the last in the list,
     // in case our preferred controller is grouped someplace else
-    if($_REQUEST['type'] == TYPE_PLAYLIST) {
+    if($_REQUEST['type'] == TYPE_SONOS_PLAYLIST) {
         playFromPlaylist($controller, $playlistId);
     } elseif($_REQUEST['type'] == TYPE_RADIO_STREAM) {
         playFromRadioStream($controller, $playlistId);
