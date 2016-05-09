@@ -69,6 +69,4 @@ jQuery(function($) {
 
     }());
 
-    // Reload page after some time
-    window.setTimeout(location.reload(true), 7200000);
 });
