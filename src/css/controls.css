@@ -1,0 +1,75 @@
+/*
+ * General positions and styling
+ */
+#musicControls {
+    text-align: center;
+}
+#musicControls > div {
+    display: inline-block;
+}
+#musicControls > div.all > img {
+    user-drag: none;
+    user-select: none;
+    -moz-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#musicControls > .off {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+    opacity: 0.2;
+}
+
+/*
+ * Play/Pause buttons
+ */
+#musicControls > .playPause > .play {
+    display: none;
+}
+#musicControls > .playPause.playing > .play {
+    display: none;
+}
+#musicControls > .playPause.playing > .pause {
+    display: inline-block;
+}
+#musicControls > .playPause.paused > .play {
+    display: inline-block;
+}
+#musicControls > .playPause.paused > .pause {
+    display: none;
+}
+
+/*
+ * Previous / Next Buttons
+ */
+#musicControls > .previous > img {
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg); /* IE 9 */
+}
+
+/*
+ * Repeat Button
+ */
+#musicControls > .repeat {
+    float: right;
+}
+#musicControls > .repeat > .repeatingOnce {
+    display: none;
+}
+#musicControls > .repeat.once > .repeatingOnce {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 130px;
+    font-size: xx-large;
+    display: inline-block;
+}
+#musicControls > .repeat.all {
+}

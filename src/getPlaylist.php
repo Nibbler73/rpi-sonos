@@ -30,11 +30,14 @@ foreach ($playlists as $playlist) {
 // Fetch Sonos Radio-Stations
 $radio = $sonos->getRadio();
 foreach ($radio->getFavouriteStations() as $favouriteStation) {
-    $jsonPlaylists['items'][] = getJsonPlaylistItem($favouriteStation->getName(), $favouriteStation->getTitle(), false, TYPE_RADIO_STREAM);
+    $jsonPlaylists['items'][] = getJsonPlaylistItem($favouriteStation->getName(), $favouriteStation->getName(), false, TYPE_RADIO_STREAM);
 }
 foreach ($radio->getFavouriteShows() as $favouriteStation) {
-    $jsonPlaylists['items'][] = getJsonPlaylistItem($favouriteStation->getName(), $favouriteStation->getTitle(), false, TYPE_RADIO_STREAM);
+    $jsonPlaylists['items'][] = getJsonPlaylistItem($favouriteStation->getName(), $favouriteStation->getName(), false, TYPE_RADIO_STREAM);
 }
+
+// I guess we are playing something now
+$result['playingState'] = JS_STATE_PLAYING;
 
 die( json_encode($jsonPlaylists) );
 

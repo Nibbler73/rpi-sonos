@@ -13,6 +13,29 @@ $(document).on({
     ajaxStop:   function() { $body.removeClass("loading");  }
 });
 
+function updateControls(responseData) {
+    if(typeof responseData === 'object') {
+        var controls = $("#musicControls");
+        if (responseData.hasOwnProperty("playingState")) {
+            controls.children(".playPause").removeClass("playing paused").addClass(responseData.playingState);
+        }
+        if (responseData.hasOwnProperty("repeat")) {
+            if (responseData.repeat === true) {
+                controls.children(".repeat").removeClass("off once all").addClass('all');
+            } else if (responseData.repeat === false) {
+                controls.children(".repeat").removeClass("off once all").addClass('off');
+            }
+        }
+        if (responseData.hasOwnProperty("type")) {
+            if (responseData.type == 3302) {
+                controls.children(".previous").addClass('off');
+            } else if (responseData.type == 3301) {
+                controls.children(".previous").removeClass('off');
+            }
+        }
+    }
+}
+
 jQuery(function($) {
     'use strict';
 
@@ -63,10 +86,24 @@ jQuery(function($) {
                     id: img.data('id'),
                     name: img.data('name'),
                     type: img.data('type')
-                })
+                }).done(function( data ) {
+                    updateControls(data);
+                });
             });
         });
 
     }());
 
+    $("#musicControls").on('click', 'div', function() {
+        var button = $( this );
+        var selectItem = "selectItem.php";
+        $.getJSON( selectItem, {
+            position: false,
+            id: button.data('id'),
+            name: button.data('name'),
+            type: button.data('type')
+        }).done(function( data ) {
+            updateControls(data);
+        });
+    });
 });
