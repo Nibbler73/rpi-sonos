@@ -26,8 +26,10 @@ foreach ($controllers as $controller) {
     echo "<pre>\n";
     print_r($controller->getMode());
     echo "</pre><br/>\n";
+    $track = $controller->getStateDetails();
+    $seconds = strtotime("1970-01-01 {$track->position} UTC");
+    echo "Position: " . $seconds . "<br/>\n";
 }
-
 
 $playlists = $sonos->getPlaylists();
 

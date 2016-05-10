@@ -66,7 +66,13 @@ function toggleSkipNext(\duncan3dc\Sonos\Controller $controller) {
 function toggleSkipPrevious(\duncan3dc\Sonos\Controller $controller) {
     if($controller->isUsingQueue()) {
         try {
-            $controller->previous();
+            $track = $controller->getStateDetails();
+            $seconds = strtotime("1970-01-01 {$track->position} UTC");
+            if($seconds > 10) {
+                $controller->seek(0);
+            } else {
+                $controller->previous();
+            }
         } catch(Exception $e) {
             // previous() got an Exception, so try to seek instead
             $controller->seek(0);
