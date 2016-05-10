@@ -79,7 +79,6 @@ jQuery(function($) {
             // Click Handler
             sly.on('active', function (eventName, itemIndex) {
                 var img = $(sly.items[itemIndex].el).children().andSelf().filter('img').last();
-                $('#photos-name').text(img.data('name') || 'unknown');
                 var selectItem = "selectItem.php";
                 $.getJSON( selectItem, {
                     position: itemIndex,
