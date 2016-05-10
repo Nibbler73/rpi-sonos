@@ -14,6 +14,9 @@ html {
     line-height: 1.4;
 }
 
+/*
+ * Hide scrollbar, not needed for our application
+ */
 body {
     overflow: hidden;
 }
