@@ -48,7 +48,6 @@ $radio = $sonos->getRadio();
 echo "<p>Radios:</p>";
 foreach ($radio->getFavouriteStations() as $favouriteStation) {
     echo $favouriteStation->getName() . "<br/>\n";
-    echo $favouriteStation->getTitle() . "<br/>\n";
     echo $favouriteStation->getUri() . "<br/>\n";
     echo $favouriteStation->getMetaData() . "<br/>\n";
 }
