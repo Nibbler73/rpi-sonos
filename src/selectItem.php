@@ -10,7 +10,6 @@ $playlistId = $_REQUEST['id'];
 
 $result = array();
 
-if(strlen($playlistId) > 0) {
     $sonos = new \duncan3dc\Sonos\Network;
 
     $controllers = $sonos->getControllers();
@@ -41,7 +40,6 @@ if(strlen($playlistId) > 0) {
     }
 
 
-}
 
 // Response should contain player's state
 $result['type'] = $_REQUEST['type'];
