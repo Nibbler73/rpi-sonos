@@ -55,6 +55,7 @@ if ($controller->getState() == \duncan3dc\Sonos\Controller::STATE_PLAYING) {
 $result['repeat'] = $controller->getRepeat();
 
 // return answer to JavaScript
+header("Content-Type: application/json");
 die( json_encode($result) );
 
 

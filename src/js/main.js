@@ -36,6 +36,28 @@ function updateControls(responseData) {
     }
 }
 
+function initiateUpdatePolling() {
+    // Update Sonos-Status: adjust controls to the current playing state
+    var $modal = $('#modalContainer');
+    var poll = window.setInterval(function()
+    {
+        if(! $body.hasClass('loading')) {
+            var selectItem = "getStatus.php";
+            $modal.removeClass("modal");
+            $.getJSON(selectItem).done(function (data) {
+                $modal.addClass("modal");
+                if (data.hasOwnProperty("monitorOn") && data.monitorOn == false) {
+                    // Screensaver switched of the screen, so we go to sleep here as well
+                    window.clearInterval(poll);
+                    // Enable click-catcher, that will swallow the 1st click that did end the screen-saver
+                    $body.addClass("locked");
+                }
+                updateControls(data);
+            });
+        }
+    }, 5000);
+}
+
 jQuery(function($) {
     'use strict';
 
@@ -106,5 +128,14 @@ jQuery(function($) {
             updateControls(data);
         });
     });
+
+    // Screenblanker will cover the page with a DIV that swallows all clicks and will remove itself on click
+    $("#screenSaverOverlay").on('click', function() {
+        $body.removeClass("locked");
+        // Re-Start status-polling
+        initiateUpdatePolling();
+    });
+    // Start updating the status frequently
+    initiateUpdatePolling();
 
 });

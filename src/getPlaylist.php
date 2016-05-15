@@ -39,6 +39,7 @@ foreach ($radio->getFavouriteShows() as $favouriteStation) {
 // I guess we are playing something now
 $result['playingState'] = JS_STATE_PLAYING;
 
+header("Content-Type: application/json");
 die( json_encode($jsonPlaylists) );
 
 /*
