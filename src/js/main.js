@@ -27,9 +27,9 @@ function updateControls(responseData) {
             }
         }
         if (responseData.hasOwnProperty("type")) {
-            if (responseData.type == 3302) {
+            if (responseData.type == rsc.TYPE_RADIO_STREAM) {
                 controls.children(".previous").addClass('off');
-            } else if (responseData.type == 3301) {
+            } else if (responseData.type == rsc.TYPE_SONOS_PLAYLIST) {
                 controls.children(".previous").removeClass('off');
             }
         }
@@ -93,6 +93,7 @@ jQuery(function($) {
 
     }());
 
+    // React on Controls
     $("#musicControls").on('click', 'div', function() {
         var button = $( this );
         var selectItem = "selectItem.php";
@@ -105,4 +106,5 @@ jQuery(function($) {
             updateControls(data);
         });
     });
+
 });
